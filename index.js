@@ -17,7 +17,12 @@ app.post('/webhook', (request , response) => {
     }
 
     function sendmessage (agent) {
-        agent.add(`hello world`);
+        const number = agent.parameters.number;
+        const message = agent.parameters.message;
+
+        agent.add(`please enter your message`); 
+
+        agent.add(`${number}, ${message}`); 
     }
 
     let intentMap = new Map();
