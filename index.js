@@ -24,7 +24,7 @@ app.post('/webhook', (request, response) => {
         agent.add(`I didn't understand.`);
     }
 
-    function sendmessage(agent) {
+   async function sendmessage(agent) {
         const number = agent.parameters.number;
         const text = agent.parameters.message;
         nexmo.message.sendSms(
@@ -36,7 +36,7 @@ app.post('/webhook', (request, response) => {
                 } else {
                     const { messages } = responseData;
                     const { ['message-id']: id, ['to']: number, ['error-text']: error } = messages[0];
-                    console.dir(responseData);
+                   await console.dir(responseData);
                     // Get data from response
                     const data = {
                         id,
@@ -46,7 +46,6 @@ app.post('/webhook', (request, response) => {
 
                     // Emit to the client
                     io.emit('smsStatus', data);
-                    agent.add(`message sent`);
                 }
             }
         );
