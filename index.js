@@ -16,9 +16,16 @@ app.post('/webhook', (request , response) => {
         agent.add(`I didn't understand.`);
     }
 
+    function sendmessage (agent) {
+
+        agent.add(`hello world`);
+    }
+
+
     let intentMap = new Map();
     intentMap.set('Default Welcome Intent', welcome);
     intentMap.set('Default Fallback Intent', fallback);
+    intentMap.set('SendMessage', sendmessage);
     _agent.handleRequest(intentMap);
 })
 
