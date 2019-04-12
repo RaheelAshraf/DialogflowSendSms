@@ -12,11 +12,11 @@ app.post('/webhook', (request , response) => {
         agent.add('welcome agent');
     }
 
-    function sendmessage (agent) {
+    function fallback (agent) {
         agent.add(`I didn't understand.`);
     }
 
-    function fallback(agent) {
+    function sendmessage (agent) {
         agent.add(`hello world`);
     }
 
