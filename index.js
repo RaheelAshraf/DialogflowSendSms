@@ -46,11 +46,10 @@ app.post('/webhook', (request, response) => {
 
                     // Emit to the client
                     io.emit('smsStatus', data);
+                    return agent.add(`message sent successfully`);
                 }
             }
         );
-
-        agent.add(`message sent successfully`); 
     }
 
     let intentMap = new Map();
