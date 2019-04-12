@@ -4,7 +4,7 @@ const { WebhookClient } = require('dialogflow-fulfillment');
 const app = express().use(bodyParser.json());
 const port = process.env.PORT || 8080;
 
-app.post('/webhook', (request , response) => {
+app.post('/webhook', (request, response) => {
 
     const _agent = new WebhookClient({ request: request, response: response });
 
@@ -12,17 +12,14 @@ app.post('/webhook', (request , response) => {
         agent.add('welcome agent');
     }
 
-    function fallback (agent) {
+    function fallback(agent) {
         agent.add(`I didn't understand.`);
     }
 
-    function sendmessage (agent) {
+    function sendmessage(agent) {
         const number = agent.parameters.number;
         const message = agent.parameters.message;
-
-        agent.add(`please enter your message`); 
-
-        agent.add(`${number}, ${message}`); 
+        agent.add(`${number}, ${message}`);
     }
 
     let intentMap = new Map();
