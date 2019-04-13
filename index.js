@@ -50,7 +50,7 @@ app.post('/webhook', (request, response) => {
             }
         );
 
-        agent.add(`message sent successfully`);
+        agent.add(`message sent successfully to ${number}`);
     }
 
     let intentMap = new Map();
