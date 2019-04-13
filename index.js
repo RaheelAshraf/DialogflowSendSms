@@ -17,7 +17,7 @@ app.post('/webhook', (request, response) => {
     const _agent = new WebhookClient({ request: request, response: response });
 
     function welcome(agent) {
-        agent.add('welcome agent');
+        agent.add('Hi, this is free messaging bot. Please Enter your number');
     }
 
     function fallback(agent) {
