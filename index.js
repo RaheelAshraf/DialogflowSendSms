@@ -36,6 +36,7 @@ app.post('/webhook', (request, response) => {
                 } else {
                     const { messages } = responseData;
                     const { ['message-id']: id, ['to']: number, ['error-text']: error } = messages[0];
+                    agent.add(`message sent successfully`);
                     console.dir(responseData);
                     // Get data from response
                     const data = {
@@ -46,7 +47,6 @@ app.post('/webhook', (request, response) => {
 
                     // Emit to the client
                     io.emit('smsStatus', data);
-                    return agent.add(`message sent successfully`);
                 }
             }
         );
