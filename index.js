@@ -8,8 +8,8 @@ const port = process.env.PORT || 8080;
 
 // Init Nexmo
 const nexmo = new Nexmo({
-    apiKey: '578d520e',
-    apiSecret: '8V25q2Za82CXMzT2'
+    apiKey: '',
+    apiSecret: ''
 }, { debug: true });
 
 app.post('/webhook', (request, response) => {
