@@ -48,7 +48,7 @@ app.post('/webhook', (request, response) => {
                     io.emit('smsStatus', data);
                 }
 
-                agent.add(`message sent successfully`);
+                return agent.add(`message sent successfully`);
             }
         );
     }
